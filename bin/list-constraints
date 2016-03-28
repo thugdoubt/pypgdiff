@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+def main():
+    import argparse
+    import psycopg2
+    from pypgdiff.objects import Database, Schema
+
+    p = argparse.ArgumentParser()
+    p.add_argument("--host", type=str, help="Host")
+    p.add_argument("--db", type=str, help="Database")
+    p.add_argument("--user", type=str, help="Username")
+    p.add_argument("--pass", type=str, help="Password")
+    p.add_argument("schema", type=str, nargs=1, help="Schema")
+
+    args = p.parse_args()
+
+    db = psycopg2.connect(
+        database = args.db,
+        user = args.user,
+        password = getattr(args, 'pass'),
+        host = args.host)
+    s = Schema(database=Database(conn=db), name=args.schema)
+
+    s.db.execute("SELECT constraint_name FROM information_schema.table_constraints")
+    for row in s.db.fetchall():
+        print("%s" % row[0])
+main()

@@ -1,0 +1,37 @@
+{
+  "extensions": {
+    "python.commands": {
+      "wrap_console": {
+        "pypgdiff": "pypgdiff:main"
+      }
+    }, 
+    "python.details": {
+      "classifiers": [
+        "Development Status :: 4 - Beta", 
+        "Intended Audience :: Developers", 
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)", 
+        "Programming Language :: Python", 
+        "Programming Language :: Python :: 2", 
+        "Programming Language :: Python :: 2.7", 
+        "Programming Language :: SQL"
+      ]
+    }, 
+    "python.project": {
+      "contacts": [
+        {
+          "email": "nep@noisetu.be",
+          "name": "Nick Purvis", 
+          "role": "author"
+        }
+      ], 
+      "project_urls": {
+        "Home": "https://github.com/thugdoubt/pypgdiff"
+      }
+    }
+  }, 
+  "metadata_version": "2.0", 
+  "name": "pyPGdiff", 
+  "source_url": "https://github.com/thugdoubt/pypgdiff",
+  "summary": "Generate on-the-fly migrations between PostgreSQL schemas", 
+  "version": "0.1.3"
+}
